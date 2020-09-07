@@ -182,7 +182,7 @@ void ExampleTournamentAI::onFrame()
 	}
 
 	// add the framer times for this frame
-	frameTimes[frame] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[frame] = std::max(frameTimes[frame], BWAPI::Broodwar->getLastEventTime());
 
 	// the total time for the last frame
 	int timeElapsed = frameTimes[frame-1];
@@ -309,52 +309,52 @@ void ExampleTournamentAI::drawUnitInformation(int x, int y)
 
 void ExampleTournamentAI::onSendText(std::string text)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onReceiveText(BWAPI::Player player, std::string text)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onPlayerLeft(BWAPI::Player player)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onPlayerDropped(BWAPI::Player* player)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onNukeDetect(BWAPI::Position target)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitDiscover(BWAPI::Unit unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitEvade(BWAPI::Unit unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitShow(BWAPI::Unit unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitHide(BWAPI::Unit unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitCreate(BWAPI::Unit unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 
 	int mult = 3;
 
@@ -369,17 +369,17 @@ void ExampleTournamentAI::onUnitCreate(BWAPI::Unit unit)
 
 void ExampleTournamentAI::onUnitDestroy(BWAPI::Unit unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitMorph(BWAPI::Unit unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitComplete(BWAPI::Unit *unit)
 {
-	frameTimes[BWAPI::Broodwar->getFrameCount()] += BWAPI::Broodwar->getLastEventTime();
+	frameTimes[BWAPI::Broodwar->getFrameCount()] = std::max(frameTimes[BWAPI::Broodwar->getFrameCount()], BWAPI::Broodwar->getLastEventTime());
 }
 
 void ExampleTournamentAI::onUnitRenegade(BWAPI::Unit unit)
